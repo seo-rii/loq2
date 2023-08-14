@@ -1,7 +1,6 @@
-#ifndef LOQ2_MAP_H
-#define LOQ2_MAP_H
+#pragma once
 
-#include "../library.h"
+#include "../type.h"
 
 class Map {
     bool h[90], v[90];
@@ -32,4 +31,4 @@ public:
     bool set_v_block(const Point &pos);
 };
 
-#endif //LOQ2_MAP_H
+#include "../library.h"

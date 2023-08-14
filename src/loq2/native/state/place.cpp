@@ -9,7 +9,7 @@ inline State State::placeI(const IBlock &iBlock) const {
         if (!b) {
             b = iBlock;
             state.turn = !state.turn;
-            return state;
+            return b.apply(state);
         }
     }
     return NULL_STATE;
@@ -24,7 +24,7 @@ inline State State::placeL(const LBlock &lBlock) const {
         if (!b) {
             b = lBlock;
             state.turn = !state.turn;
-            return state;
+            return b.apply(state);
         }
     }
     return NULL_STATE;

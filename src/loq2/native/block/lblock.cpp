@@ -1,4 +1,4 @@
-#include "./block.h"
+#include "../library.h"
 
 State LBlock::apply(const State &s) const {
     State ns = s;

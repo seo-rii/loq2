@@ -1,5 +1,6 @@
-#ifndef LOQ2_POINT_H
-#define LOQ2_POINT_H
+#pragma once
+
+#include "../type.h"
 
 class Point {
     byte t{};
@@ -38,11 +39,8 @@ public:
     [[nodiscard]] Point right() const { return {x() + 1, y()}; }
 };
 
-#endif //LOQ2_POINT_H
+Point lb(const Point &p, const Point &q);
 
+Point rt(const Point &p, const Point &q);
 
-Point lb(const Point &p, const Point &q) { return {MIN(p.x(), q.x()), MIN(p.y(), q.y())}; }
-
-Point rt(const Point &p, const Point &q) { return {MAX(p.x(), q.x()), MAX(p.y(), q.y())}; }
-
-Point md(const Point &p, const Point &q) { return {(p.x() + q.x()) / 2, (p.y() + q.y()) / 2}; }
+#include "../library.h"

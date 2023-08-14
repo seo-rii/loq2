@@ -1,4 +1,4 @@
-#include "map.h"
+#include "../library.h"
 
 inline bool Map::h_block(const Point &p) const {
     return h[p.x() * 10 + p.y()];

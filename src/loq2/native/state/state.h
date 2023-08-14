@@ -1,7 +1,6 @@
-#ifndef LOQ2_STATE_H
-#define LOQ2_STATE_H
+#pragma once
 
-#include "../library.h"
+#include "../type.h"
 
 class State {
     friend class IBlock;
@@ -59,10 +58,6 @@ public:
     bool cross(const LBlock &iBlock) const;
 };
 
-const State INIT_STATE{{5, 1},
-                       {5, 9}};
+extern const State INIT_STATE, NULL_STATE;
 
-const State NULL_STATE{{0, 0},
-                       {0, 0}};
-
-#endif //LOQ2_STATE_H
+#include "../library.h"

@@ -1,7 +1,6 @@
-#ifndef LOQ2_BLOCK_H
-#define LOQ2_BLOCK_H
+#pragma once
 
-#include "../library.h"
+#include "../type.h"
 
 class IBlock {
 public:
@@ -47,4 +46,4 @@ public:
     bool operator!() const { return !p && dir == 0; }
 };
 
-#endif //LOQ2_BLOCK_H
+#include "../library.h"

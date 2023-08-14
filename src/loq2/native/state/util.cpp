@@ -1,4 +1,4 @@
-#include "./state.h"
+#include "../library.h"
 
 inline Point State::position(bool my) const {
     return (!my ^ this->turn) ? this->k : this->p;
@@ -27,3 +27,13 @@ inline bool State::v_block(const Point &pos) const {
 inline bool State::h_block(const Point &pos) const {
     return this->map.h_block(pos);
 }
+
+Map State::getMap() const {
+    return this->map;
+}
+
+const State INIT_STATE{{5, 1},
+                       {5, 9}};
+
+const State NULL_STATE{{0, 0},
+                       {0, 0}};
