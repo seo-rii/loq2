@@ -1,3 +1,7 @@
 cmake-build-debug/
 venv/
 .idea/
+**/*.so
+**/*.egg-info/
+**/build/
+**/dist/

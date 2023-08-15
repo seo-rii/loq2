@@ -1,7 +1,6 @@
 #include "../library.h"
 
-
-inline bool State::cross(const IBlock &iBlock) const {
+bool State::cross(const IBlock &iBlock) const {
     Point pos = iBlock.p;
     byte x = iBlock.p.x(), y = iBlock.p.y();
     if (iBlock.dir == 1) {
@@ -18,7 +17,7 @@ inline bool State::cross(const IBlock &iBlock) const {
     return false;
 }
 
-inline bool State::cross(const LBlock &lBlock) const {
+bool State::cross(const LBlock &lBlock) const {
     byte x = lBlock.p.x(), y = lBlock.p.y(), ah = 0, av = 0;
     if (lBlock.dir == 3 || lBlock.dir == 4) ah = 1;
     if (lBlock.dir == 3 || lBlock.dir == 2) av = 1;

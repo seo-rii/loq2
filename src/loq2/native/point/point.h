@@ -22,11 +22,11 @@ public:
 
     [[nodiscard]] byte y() const;
 
-    void set(int x, int y) { t = (x << 4) | y; }
+    void set(int x, int y);
 
-    void setX(int x) { t = (x << 4) | y(); }
+    void setX(int x);
 
-    void setY(int y) { t = (x() << 4) | y; }
+    void setY(int y);
 
     [[nodiscard]] byte distance(const Point &p) const;
 
@@ -39,8 +39,8 @@ public:
     [[nodiscard]] Point right() const { return {x() + 1, y()}; }
 };
 
-Point lb(const Point &p, const Point &q);
+extern "C" Point lbP(const Point &p, const Point &q);
 
-Point rt(const Point &p, const Point &q);
+extern "C" Point rtP(const Point &p, const Point &q);
 
 #include "../library.h"

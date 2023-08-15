@@ -2,9 +2,8 @@ import setuptools
 import glob
 
 cpps = glob.glob('./loq2/native/**/*.cpp', recursive=True)
-print(cpps)
 
-native = setuptools.Extension('native', sources=cpps, extra_compile_args=['-std=c++20'], language='c++')
+native = setuptools.Extension('native', sources=cpps, extra_compile_args=['-std=c++20', '-O3'], language='c++')
 
 install_requires = [
     'numpy==1.25.2'
@@ -18,7 +17,7 @@ setuptools.setup(
     description="League of Quoridor",
     long_description="League of Quoridor",
     long_description_content_type="text/markdown",
-    url="https://github.com/dastyinc/loq2",
+    url="https://github.com/seo-rii/loq2",
     packages=[
         'loq2',
     ],

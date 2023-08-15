@@ -1,6 +1,6 @@
 #include "../library.h"
 
-inline State State::placeI(const IBlock &iBlock) const {
+State State::placeI(const IBlock &iBlock) const {
     if (!iBlock || !iBlock.valid()) return NULL_STATE;
     if (this->cross(iBlock)) return NULL_STATE;
     State state(*this);
@@ -15,7 +15,7 @@ inline State State::placeI(const IBlock &iBlock) const {
     return NULL_STATE;
 }
 
-inline State State::placeL(const LBlock &lBlock) const {
+State State::placeL(const LBlock &lBlock) const {
     if (!lBlock || !lBlock.valid()) return NULL_STATE;
     if (this->cross(lBlock)) return NULL_STATE;
     State state(*this);
