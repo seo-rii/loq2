@@ -10,8 +10,12 @@ b = IBlock(6, 2, 3)
 print(b.position, b.direction)
 
 s = State()
-t = s.act(0, 5, 8)
-u = s.act(0, 5, 2)
-print(s)
-print(not t)
-print(not u, u.position(False))
+u = s.act(1, 5, 2)
+v = u.act(2, 2, 2, 1)
+print(s)  # State
+print(not s.act(1, 5, 8))  # True
+print(not u, u.position(False))  # False, (5, 2)
+print(not v.act(2, 1, 2, 1))  # True
+print(not v, v.map.h[1][1], v.map.np[0][1][1])  # False, True, True
+print(v.act(2, 2, 2, 2))
+print(v.block_ip[0].p.t)  # 2

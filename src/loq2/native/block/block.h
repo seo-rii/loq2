@@ -17,6 +17,8 @@ public:
 
     IBlock *copy() { return new IBlock(*this); }
 
+    void operator=(IBlock const &b) { p = b.p, dir = b.dir; }
+
     [[nodiscard]] State apply(State const &s) const;
 
     bool valid() const;

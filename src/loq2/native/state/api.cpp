@@ -26,4 +26,20 @@ API Point State_Position(State *s, bool my) {
     return s->position(my);
 }
 
+API IBlock *State_KI(State *s) {
+    return s->getKIBlock();
+}
+
+API IBlock *State_PI(State *s) {
+    return s->getPIBlock();
+}
+
+API LBlock *State_KL(State *s) {
+    return s->getKLBlock();
+}
+
+API LBlock *State_PL(State *s) {
+    return s->getPLBlock();
+}
+
 }

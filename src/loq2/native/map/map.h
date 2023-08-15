@@ -3,21 +3,26 @@
 #include "../type.h"
 
 class Map {
-    bool h[90], v[90];
+    bool h[9][10], v[10][9];
 public:
     Map() = default;
 
     Map(Map const &m) {
-        for (int i = 0; i < 90; ++i) {
-            h[i] = m.h[i];
-            v[i] = m.v[i];
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 10; ++j) {
+                h[i][j] = m.h[i][j];
+                v[j][i] = m.v[j][i];
+            }
         }
     }
 
     Map &operator=(Map const &m) {
-        for (int i = 0; i < 90; ++i) {
-            h[i] = m.h[i];
-            v[i] = m.v[i];
+        if (this == &m) return *this;
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 10; ++j) {
+                h[i][j] = m.h[i][j];
+                v[j][i] = m.v[j][i];
+            }
         }
         return *this;
     }

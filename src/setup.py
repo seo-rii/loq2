@@ -6,7 +6,8 @@ cpps = glob.glob('./loq2/native/**/*.cpp', recursive=True)
 native = setuptools.Extension('native', sources=cpps, extra_compile_args=['-std=c++20', '-O3'], language='c++')
 
 install_requires = [
-    'numpy==1.25.2'
+    'numpy==1.25.2',
+    'ctypes==1.1.0',
 ]
 
 setuptools.setup(

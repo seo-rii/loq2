@@ -28,13 +28,12 @@ class Point(object):
     def __init__(self, x, y=None):
         if type(x) is int:
             self.ref = lib.Point_ByValue(x, y)
-        elif type(x) is PointPointer:
+        elif type(x) is PointPointer or type(x) is PointStruct:
             self.ref = x
-        elif type(x) is PointStruct:
-            self.ref = x
+            self.r = True
 
     def __del__(self):
-        return
+        if 'r' in self.__dict__: return
         lib.Point_Delete(self.ref)
 
     def __copy__(self):

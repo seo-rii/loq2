@@ -13,9 +13,9 @@ bool State::internal(bool my) const {
 }
 
 State State::act(byte type, byte p1, byte p2, byte p3) const {
-    if (type == 0) return move({p1, p2});
-    if (type == 1) return placeI({{p1, p2}, p3});
-    if (type == 2) return placeL({{p1, p2}, p3});
+    if (type == 1) return move({p1, p2});
+    if (type == 2) return placeI({{p1, p2}, p3});
+    if (type == 3) return placeL({{p1, p2}, p3});
     return NULL_STATE;
 }
 
@@ -30,6 +30,22 @@ bool State::h_block(const Point &pos) const {
 
 Map State::getMap() const {
     return this->map;
+}
+
+IBlock *State::getKIBlock() {
+    return block_ik;
+}
+
+IBlock *State::getPIBlock() {
+    return block_ip;
+}
+
+LBlock *State::getKLBlock() {
+    return block_lk;
+}
+
+LBlock *State::getPLBlock() {
+    return block_lp;
 }
 
 const State INIT_STATE{{5, 1},

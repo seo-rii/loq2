@@ -18,6 +18,8 @@ public:
 
     bool operator==(const Point &p) const { return t == p.t; }
 
+    void operator=(const Point &p) { t = p.t; }
+
     [[nodiscard]] byte x() const;
 
     [[nodiscard]] byte y() const;

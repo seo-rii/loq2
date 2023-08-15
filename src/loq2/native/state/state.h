@@ -56,6 +56,14 @@ public:
     bool cross(const IBlock &iBlock) const;
 
     bool cross(const LBlock &iBlock) const;
+
+    IBlock *getKIBlock();
+
+    IBlock *getPIBlock();
+
+    LBlock *getKLBlock();
+
+    LBlock *getPLBlock();
 };
 
 extern const State INIT_STATE, NULL_STATE;
