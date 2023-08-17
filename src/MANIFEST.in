@@ -1,0 +1,2 @@
+include loq2/native/**/*.h
+include loq2/native/*.h
