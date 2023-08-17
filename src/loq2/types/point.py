@@ -32,6 +32,10 @@ class Point(object):
             self.ref = x
             self.r = True
 
+    def __eq__(self, other):
+        if type(other) == Point: other = other.tuple
+        return self.tuple == other
+
     def __del__(self):
         if 'r' in self.__dict__: return
         lib.Point_Delete(self.ref)
@@ -63,3 +67,7 @@ class Point(object):
 
     def set(self, x, y):
         lib.Point_Set(self.ref, x, y)
+
+    @property
+    def tuple(self):
+        return (self.x, self.y)

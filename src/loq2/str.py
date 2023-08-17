@@ -24,6 +24,8 @@ def state_str(self):
     py = p.y
     ox = o.x
     oy = o.y
+    if px == 0 and py == 0:
+        return "Invalid State"
 
     res = ''
     board = [[("┼" if y % 2 else "│") if x % 2 else ("───" if y % 2 else "   ") for x in range(17)] for y in range(17)]
@@ -56,4 +58,4 @@ def state_str(self):
         res = f'{colors.GRAY}  {"".join(line)}{colors.CYAN}{(i + 2) // 2 if not i % 2 else " "}{colors.GRAY}\n' + res
 
     res += f'   {"   ".join(map(lambda i: f"{colors.GREEN}{i}{colors.GRAY}", range(1, 10)))}{colors.ENDC}\n'
-    return res
+    return "%s's turn!\n" % ('POSTECH' if self.turn else 'KAIST') + res
