@@ -21,7 +21,7 @@ lib.State_New.argtypes = []
 lib.State_New.restype = StatePointer
 lib.State_Delete.argtypes = [StatePointer]
 
-lib.State_Act.argtypes = [StatePointer, T.c_byte, T.c_byte, T.c_byte, T.c_byte]
+lib.State_Act.argtypes = [StatePointer, T.c_ubyte, T.c_ubyte, T.c_ubyte, T.c_ubyte]
 lib.State_Act.restype = StatePointer
 lib.State_GetMap.argtypes = [StatePointer]
 lib.State_GetMap.restype = MapStruct
@@ -30,7 +30,7 @@ lib.State_Position.argtypes = [StatePointer, T.c_bool]
 lib.State_Position.restype = PointPointer
 
 
-class State(StateStruct):
+class State(object):
     def __init__(self, st=None):
         if st is not None:
             self.obj = st
@@ -67,3 +67,19 @@ class State(StateStruct):
 
     def __str__(self):
         return state_str(self)
+
+    @property
+    def block_ik(self):
+        return [IBlock(i) for i in self.obj.contents.block_ik]
+
+    @property
+    def block_ip(self):
+        return [IBlock(i) for i in self.obj.contents.block_ip]
+
+    @property
+    def block_lk(self):
+        return [LBlock(i) for i in self.obj.contents.block_lk]
+
+    @property
+    def block_lp(self):
+        return [LBlock(i) for i in self.obj.contents.block_lp]

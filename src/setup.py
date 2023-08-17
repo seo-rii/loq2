@@ -12,16 +12,14 @@ install_requires = [
 
 setuptools.setup(
     name="loq2",
-    version="0.2.0",
+    version="0.2.1",
     author="seorii",
     author_email="me@seorii.page",
     description="League of Quoridor",
     long_description="League of Quoridor",
     long_description_content_type="text/markdown",
     url="https://github.com/seo-rii/loq2",
-    packages=[
-        'loq2',
-    ],
+    packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -3,7 +3,7 @@ from ..lib import lib
 
 
 class PointStruct(T.Structure):
-    _fields_ = [("t", T.c_byte)]
+    _fields_ = [("t", T.c_ubyte)]
 
 
 PointPointer = T.POINTER(PointStruct)
@@ -15,13 +15,13 @@ lib.Point_Copy.restype = PointPointer
 lib.Point_Delete.argtypes = [PointPointer]
 
 lib.Point_X.argtypes = [PointPointer]
-lib.Point_X.restype = T.c_byte
+lib.Point_X.restype = T.c_ubyte
 lib.Point_Y.argtypes = [PointPointer]
-lib.Point_Y.restype = T.c_byte
+lib.Point_Y.restype = T.c_ubyte
 
-lib.Point_Set.argtypes = [PointPointer, T.c_byte, T.c_byte]
-lib.Point_SetX.argtypes = [PointPointer, T.c_byte]
-lib.Point_SetY.argtypes = [PointPointer, T.c_byte]
+lib.Point_Set.argtypes = [PointPointer, T.c_ubyte, T.c_ubyte]
+lib.Point_SetX.argtypes = [PointPointer, T.c_ubyte]
+lib.Point_SetY.argtypes = [PointPointer, T.c_ubyte]
 
 
 class Point(object):
