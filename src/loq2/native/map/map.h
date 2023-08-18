@@ -31,9 +31,9 @@ public:
 
     [[nodiscard]] bool v_block(const Point &pos) const;
 
-    bool set_h_block(const Point &pos);
+    bool set_h_block(const Point &pos, bool set = true);
 
-    bool set_v_block(const Point &pos);
+    bool set_v_block(const Point &pos, bool set = true);
 };
 
 #include "../library.h"

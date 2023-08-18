@@ -24,17 +24,19 @@ def state_str(self):
     py = p.y
     ox = o.x
     oy = o.y
-    if px == 0 and py == 0:
+    if px == 0 and py == 0 and ox == 0 and oy == 0:
         return "Invalid State"
 
     res = ''
     board = [[("┼" if y % 2 else "│") if x % 2 else ("───" if y % 2 else "   ") for x in range(17)] for y in range(17)]
 
-    if px == ox and py == oy:
+    if px == ox and py == oy and px:
         board[2 * (py - 1)][2 * (px - 1)] = f'{colors.PURPLE} O {colors.GRAY}'
     else:
-        board[2 * (py - 1)][2 * (px - 1)] = f'{colors.BLUE} O {colors.GRAY}'
-        board[2 * (oy - 1)][2 * (ox - 1)] = f'{colors.RED} O {colors.GRAY}'
+        if px:
+            board[2 * (py - 1)][2 * (px - 1)] = f'{colors.BLUE} O {colors.GRAY}'
+        if ox:
+            board[2 * (oy - 1)][2 * (ox - 1)] = f'{colors.RED} O {colors.GRAY}'
 
     def hl(x, y):
         if x >= 0 and x < 17 and y >= 0 and y < 17:

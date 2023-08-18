@@ -1,19 +1,19 @@
 #include "../library.h"
 
-State LBlock::apply(const State &s) const {
+State LBlock::apply(const State &s, bool set) const {
     State ns = s;
     if (this->dir == 1) {
-        if (!ns.map.set_h_block(this->p)) return NULL_STATE;
-        if (!ns.map.set_v_block(this->p)) return NULL_STATE;
+        if (!ns.map.set_h_block(this->p, set)) return NULL_STATE;
+        if (!ns.map.set_v_block(this->p, set)) return NULL_STATE;
     } else if (this->dir == 2) {
-        if (!ns.map.set_h_block(this->p)) return NULL_STATE;
-        if (!ns.map.set_v_block(this->p.up())) return NULL_STATE;
+        if (!ns.map.set_h_block(this->p, set)) return NULL_STATE;
+        if (!ns.map.set_v_block(this->p.up(), set)) return NULL_STATE;
     } else if (this->dir == 3) {
-        if (!ns.map.set_h_block(this->p.right())) return NULL_STATE;
-        if (!ns.map.set_v_block(this->p.up())) return NULL_STATE;
+        if (!ns.map.set_h_block(this->p.right(), set)) return NULL_STATE;
+        if (!ns.map.set_v_block(this->p.up(), set)) return NULL_STATE;
     } else {
-        if (!ns.map.set_h_block(this->p.right())) return NULL_STATE;
-        if (!ns.map.set_v_block(this->p)) return NULL_STATE;
+        if (!ns.map.set_h_block(this->p.right(), set)) return NULL_STATE;
+        if (!ns.map.set_v_block(this->p, set)) return NULL_STATE;
     }
     return ns;
 }

@@ -19,7 +19,7 @@ public:
 
     void operator=(IBlock const &b) { p = b.p, dir = b.dir; }
 
-    [[nodiscard]] State apply(State const &s) const;
+    [[nodiscard]] State apply(State const &s, bool set = true) const;
 
     bool valid() const;
 
@@ -41,7 +41,7 @@ public:
 
     LBlock *copy() { return new LBlock(*this); }
 
-    [[nodiscard]] State apply(State const &s) const;
+    [[nodiscard]] State apply(State const &s, bool set = true) const;
 
     bool valid() const;
 

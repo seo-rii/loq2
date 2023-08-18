@@ -19,6 +19,12 @@ State State::act(byte type, byte p1, byte p2, byte p3) const {
   return NULL_STATE;
 }
 
+State State::next() const {
+  State state(*this);
+  state.turn = !state.turn;
+  return state;
+}
+
 bool State::v_block(const Point &pos) const { return this->map.v_block(pos); }
 
 bool State::h_block(const Point &pos) const { return this->map.h_block(pos); }

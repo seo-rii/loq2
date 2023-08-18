@@ -35,6 +35,10 @@ public:
 
     [[nodiscard]] State placeL(const LBlock &lBlock) const;
 
+    [[nodiscard]] State mask() const;
+
+    [[nodiscard]] State next() const;
+
     [[nodiscard]] Map getMap() const;
 
     // Utils

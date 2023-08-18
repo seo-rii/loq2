@@ -62,6 +62,5 @@ State State::move(const Point &to) const {
     ns.k = to;
   else
     ns.p = to;
-  ns.turn = !ns.turn;
-  return ns;
+  return ns.next();
 }

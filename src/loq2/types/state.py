@@ -21,6 +21,11 @@ lib.State_New.argtypes = []
 lib.State_New.restype = StatePointer
 lib.State_Delete.argtypes = [StatePointer]
 
+lib.State_Mask.argtypes = []
+lib.State_Mask.restype = StatePointer
+lib.State_Next.argtypes = []
+lib.State_Next.restype = StatePointer
+
 lib.State_Act.argtypes = [StatePointer, T.c_ubyte, T.c_ubyte, T.c_ubyte, T.c_ubyte]
 lib.State_Act.restype = StatePointer
 lib.State_GetMap.argtypes = [StatePointer]
@@ -83,3 +88,7 @@ class State(object):
     @property
     def block_lp(self):
         return [LBlock(i) for i in self.obj.contents.block_lp]
+
+    @property
+    def mask(self):
+        return State(lib.State_Mask(self.obj))
