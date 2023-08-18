@@ -43,6 +43,9 @@ class Point(object):
     def __copy__(self):
         return Point(lib.Point_Copy(self.ref))
 
+    def __bool__(self):
+        return bool(self.x or self.y)
+
     @property
     def x(self):
         return lib.Point_X(self.ref)

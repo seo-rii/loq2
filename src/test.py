@@ -1,5 +1,4 @@
 from loq2 import Point, IBlock, State, ACTION
-import ctypes as T
 
 a = Point(1, 2)
 assert a == (1, 2)
@@ -51,8 +50,9 @@ a = a.act(ACTION.MOVE, 5, 8)
 a = a.act(ACTION.MOVE, 5, 3)
 a = a.act(ACTION.MOVE, 5, 7)
 a = a.act(ACTION.MOVE, 5, 4)
-print(a)
-print(a.mask)
+m = a.mask
+assert m
+assert not m.position(False)
 a = a.act(ACTION.MOVE, 5, 6)
 a = a.act(ACTION.PLACE_I, 2, 6, 2)
 a = a.act(ACTION.PLACE_I, 4, 6, 2)

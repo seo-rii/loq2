@@ -48,7 +48,7 @@ class State(object):
         lib.State_Delete(self.obj)
 
     def __bool__(self):
-        return self.obj.contents.k.t != 0
+        return self.obj.contents.k.t != 0 or self.obj.contents.p.t != 0
 
     def act(self, action, x, y, w=0) -> 'State':
         return State(lib.State_Act(self.obj, action, x, y, w))
