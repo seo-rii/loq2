@@ -14,14 +14,14 @@ State IBlock::apply(const State &s, bool set) const {
 
 bool IBlock::valid() const {
     if (dir == 1)
-        return this->p.x() >= 1
-               && this->p.x() <= 10
+        return this->p.x() >= 2
+               && this->p.x() <= 9
                && this->p.y() >= 1
                && this->p.y() <= 8;
     if (dir == 2)
         return this->p.x() >= 1
                && this->p.x() <= 8
-               && this->p.y() >= 1
-               && this->p.y() <= 10;
+               && this->p.y() >= 2
+               && this->p.y() <= 9;
     return false;
 }
