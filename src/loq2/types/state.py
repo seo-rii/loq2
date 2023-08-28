@@ -23,6 +23,8 @@ lib.State_Delete.argtypes = [StatePointer]
 
 lib.State_Mask.argtypes = []
 lib.State_Mask.restype = StatePointer
+lib.State_Copy.argtypes = []
+lib.State_Copy.restype = StatePointer
 lib.State_Next.argtypes = []
 lib.State_Next.restype = StatePointer
 
@@ -92,3 +94,6 @@ class State(object):
     @property
     def mask(self):
         return State(lib.State_Mask(self.obj))
+
+    def copy(self):
+        return State(lib.State_Copy(self.obj))

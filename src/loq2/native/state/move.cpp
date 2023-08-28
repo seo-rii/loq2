@@ -3,7 +3,7 @@
 bool State::movable(const Point &to, const Point &from, const Point &op) const {
   if (!internal(false) && to == op)
     return false;
-  if (to.x() < 0 || to.x() > BOARD_SIZE || to.y() < 0 || to.y() > BOARD_SIZE)
+  if (to.x() <= 0 || to.x() > BOARD_SIZE || to.y() <= 0 || to.y() > BOARD_SIZE)
     return false;
   byte dis = from.distance(to);
   if (dis == 1) {
