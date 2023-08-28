@@ -17,6 +17,8 @@ public:
 
     IBlock *copy() { return new IBlock(*this); }
 
+    bool internal() const;
+
     void operator=(IBlock const &b) { p = b.p, dir = b.dir; }
 
     [[nodiscard]] State apply(State const &s, bool set = true) const;
@@ -40,6 +42,8 @@ public:
     LBlock(byte x, byte y, byte dir) { p = Point(x, y), this->dir = dir; }
 
     LBlock *copy() { return new LBlock(*this); }
+
+    bool internal() const;
 
     [[nodiscard]] State apply(State const &s, bool set = true) const;
 

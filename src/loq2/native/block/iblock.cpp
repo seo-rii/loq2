@@ -25,3 +25,10 @@ bool IBlock::valid() const {
                && this->p.y() <= 9;
     return false;
 }
+
+bool IBlock::internal() const {
+    if (dir == 1)
+        return this->p.x() >= 5 && this->p.x() <= 6 && this->p.y() >= 4 && this->p.y() <= 5;
+    if (dir == 2)
+        return this->p.x() >= 4 && this->p.x() <= 5 && this->p.y() >= 5 && this->p.y() <= 6;
+}

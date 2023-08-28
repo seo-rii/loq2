@@ -5,6 +5,8 @@ State State::placeI(const IBlock &iBlock) const {
     return NULL_STATE;
   if (this->cross(iBlock))
     return NULL_STATE;
+  if(!this->internal() && iBlock.internal())
+      return NULL_STATE;
   State state(*this);
   if (state.turn) {
     for (int i = 0; i < I_COUNT; i++) {
@@ -35,6 +37,8 @@ State State::placeL(const LBlock &lBlock) const {
   if (!lBlock || !lBlock.valid())
     return NULL_STATE;
   if (this->cross(lBlock))
+    return NULL_STATE;
+  if(!this->internal() && lBlock.internal())
     return NULL_STATE;
   State state(*this);
   if (state.turn) {

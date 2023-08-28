@@ -25,3 +25,12 @@ bool LBlock::valid() const {
            && this->p.y() >= 1
            && this->p.y() <= 9;
 }
+
+bool LBlock::internal() const {
+    if (this->p.x() < 4 || this->p.x() > 6 || this->p.y() < 4 || this->p.y() > 6) return false;
+    if (this->dir == 1 && this->p.x() == 4 && this->p.y() == 4) return false;
+    if (this->dir == 2 && this->p.x() == 4 && this->p.y() == 6) return false;
+    if (this->dir == 3 && this->p.x() == 6 && this->p.y() == 6) return false;
+    if (this->dir == 4 && this->p.x() == 6 && this->p.y() == 4) return false;
+    return true;
+}
