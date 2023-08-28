@@ -28,4 +28,6 @@ API LBlock *State_KL(State *s) { return s->getKLBlock(); }
 
 API LBlock *State_PL(State *s) { return s->getPLBlock(); }
 
+API byte State_Win(State *s) { return s->win(); }
+
 }

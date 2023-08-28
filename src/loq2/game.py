@@ -14,6 +14,9 @@ class Game:
         self.acts = acts
         self.fin = False
 
+    def __bool__(self):
+        return self.st.__bool__()
+
     def copy(self):
         return Game(self.st.copy(), self.acts.copy())
 

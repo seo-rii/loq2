@@ -19,6 +19,8 @@ StatePointer = T.POINTER(StateStruct)
 
 lib.State_New.argtypes = []
 lib.State_New.restype = StatePointer
+lib.State_Win.argtypes = []
+lib.State_Win.restype = T.c_ubyte
 lib.State_Delete.argtypes = [StatePointer]
 
 lib.State_Mask.argtypes = []
@@ -71,6 +73,10 @@ class State(object):
     @property
     def turn(self):
         return self.obj.contents.turn
+
+    @property
+    def win(self):
+        return lib.State_Win(self.obj)
 
     def __str__(self):
         return state_str(self)

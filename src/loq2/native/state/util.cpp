@@ -25,6 +25,12 @@ State State::next() const {
   return state;
 }
 
+byte State::win() const {
+    if(this->k.y() == BOARD_SIZE) return 1;
+    if(this->p.y() == 1) return 2;
+    return 0;
+}
+
 bool State::v_block(const Point &pos) const { return this->map.v_block(pos); }
 
 bool State::h_block(const Point &pos) const { return this->map.h_block(pos); }

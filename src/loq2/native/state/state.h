@@ -61,6 +61,8 @@ public:
 
     bool cross(const LBlock &iBlock) const;
 
+    byte win() const;
+
     IBlock *getKIBlock();
 
     IBlock *getPIBlock();

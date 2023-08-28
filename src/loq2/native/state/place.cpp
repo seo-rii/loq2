@@ -13,8 +13,10 @@ State State::placeI(const IBlock &iBlock) const {
       if (!state.block_ip[i]) {
         state.block_ip[i] = iBlock;
         state = iBlock.apply(state).next();
-        if (!state.endable())
-          return NULL_STATE;
+        if (!state || !state.endable()) {
+            if(iBlock.internal()) return next();
+            return NULL_STATE;
+        }
         return state;
       }
     }
@@ -24,8 +26,10 @@ State State::placeI(const IBlock &iBlock) const {
       if (!state.block_ik[i]) {
         state.block_ik[i] = iBlock;
         state = iBlock.apply(state).next();
-        if (!state.endable())
-          return NULL_STATE;
+          if (!state || !state.endable()) {
+              if(iBlock.internal()) return next();
+              return NULL_STATE;
+          }
         return state;
       }
     }
@@ -46,8 +50,10 @@ State State::placeL(const LBlock &lBlock) const {
       if (!state.block_lp[i]) {
         state.block_lp[i] = lBlock;
         state = lBlock.apply(state).next();
-        if (!state.endable())
-          return NULL_STATE;
+          if (!state || !state.endable()) {
+              if(lBlock.internal()) return next();
+              return NULL_STATE;
+          }
         return state;
       }
     }
@@ -57,8 +63,10 @@ State State::placeL(const LBlock &lBlock) const {
       if (!state.block_lk[i]) {
         state.block_lk[i] = lBlock;
         state = lBlock.apply(state).next();
-        if (!state.endable())
-          return NULL_STATE;
+          if (!state || !state.endable()) {
+              if(lBlock.internal()) return next();
+              return NULL_STATE;
+          }
         return state;
       }
     }

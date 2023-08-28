@@ -2,6 +2,8 @@ from .types.point import Point
 from .types.map import Map
 from .types.block import IBlock, LBlock
 from .types.state import State
+from .game import Game
+from .run import Run
 
 ACTION_MOVE = 1
 ACTION_PLACE_I = 2
