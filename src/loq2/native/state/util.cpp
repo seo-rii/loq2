@@ -45,6 +45,8 @@ LBlock *State::getKLBlock() { return block_lk; }
 
 LBlock *State::getPLBlock() { return block_lp; }
 
+bool State::getTurn() const { return this->turn; }
+
 const State INIT_STATE{{5, 1}, {5, 9}};
 
 const State NULL_STATE{{0, 0}, {0, 0}};

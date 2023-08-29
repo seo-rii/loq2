@@ -43,6 +43,8 @@ public:
 
     // Utils
 
+    bool getTurn() const;
+
     bool movable(const Point &to, const Point &from, const Point &op) const;
 
     bool bfs(const Point &from, int endY) const;
