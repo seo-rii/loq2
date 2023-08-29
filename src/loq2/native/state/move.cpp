@@ -18,14 +18,10 @@ bool State::movable(const Point &to, const Point &from, const Point &op) const {
     if (from.distance(op) != 1 || op.distance(to) != 1)
       return false;
     if (from.x() == to.x()) {
-      if (v_block(rtP(from, op)))
-        return false;
-      if (v_block(rtP(from, to)))
+      if (v_block(op) || v_block(rtP(from, to)))
         return false;
     } else if (from.y() == to.y()) {
-      if (h_block(rtP(from, op)))
-        return false;
-      if (h_block(rtP(from, to)))
+      if (h_block(op) || h_block(rtP(from, to)))
         return false;
     } else {
       if (from.x() == op.x() && op.y() == to.y()) {
