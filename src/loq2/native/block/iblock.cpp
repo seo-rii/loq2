@@ -31,4 +31,5 @@ bool IBlock::internal() const {
         return this->p.x() >= 5 && this->p.x() <= 6 && this->p.y() >= 4 && this->p.y() <= 5;
     if (dir == 2)
         return this->p.x() >= 4 && this->p.x() <= 5 && this->p.y() >= 5 && this->p.y() <= 6;
+    return true;
 }
