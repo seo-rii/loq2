@@ -29,7 +29,7 @@ bool State::movable(const Point &to, const Point &from, const Point &op) const {
           return false;
         if (h_block(rtP(to, op)))
           return false;
-        if (!v_block({from.x(), op.y() * 2 - from.y()}) &&
+        if (!v_block({from.x(), op.y() * 2 - from.y() + (op.y() < from.y() ? 1 : 0)}) &&
             !(op.y() > from.y() && op.y() == BOARD_SIZE) &&
             !(op.y() < from.y() && op.y() == 1))
           return false;
@@ -38,7 +38,7 @@ bool State::movable(const Point &to, const Point &from, const Point &op) const {
           return false;
         if (v_block(rtP(to, op)))
           return false;
-        if (!h_block({op.x() * 2 - from.x(), from.y()}) &&
+        if (!h_block({op.x() * 2 - from.x() + (op.x() < from.x() ? 1 : 0), from.y()}) &&
             !(op.x() > from.x() && op.x() == BOARD_SIZE) &&
             !(op.x() < from.x() && op.x() == 1))
           return false;
