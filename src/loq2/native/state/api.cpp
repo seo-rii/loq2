@@ -16,9 +16,9 @@ API State *State_Act(State *s, byte type, byte p1, byte p2, byte p3 = 0) {
 
 API State *State_Mask(State *s) { return new State(s->mask()); }
 
-API Map State_GetMap(State *s) { return s->getMap(); }
+API Map *State_GetMap(State *s) { return new Map(s->getMap()); }
 
-API Point State_Position(State *s, bool my) { return s->position(my); }
+API Point *State_Position(State *s, bool my) { return new Point(s->position(my)); }
 
 API IBlock *State_KI(State *s) { return s->getKIBlock(); }
 

@@ -1,6 +1,6 @@
 import ctypes as T
 from ..lib import lib
-from .map import MapStruct
+from .map import MapStruct, MapPointer
 from .point import Point, PointStruct, PointPointer
 from .block import BlockStruct, IBlock, LBlock
 from ..str import state_str
@@ -33,7 +33,7 @@ lib.State_Next.restype = StatePointer
 lib.State_Act.argtypes = [StatePointer, T.c_ubyte, T.c_ubyte, T.c_ubyte, T.c_ubyte]
 lib.State_Act.restype = StatePointer
 lib.State_GetMap.argtypes = [StatePointer]
-lib.State_GetMap.restype = MapStruct
+lib.State_GetMap.restype = MapPointer
 
 lib.State_Position.argtypes = [StatePointer, T.c_bool]
 lib.State_Position.restype = PointPointer
@@ -59,7 +59,7 @@ class State(object):
 
     @property
     def map(self):
-        return lib.State_GetMap(self.obj)
+        return lib.State_GetMap(self.obj).contents
 
     def __repr__(self):
         return f'State({self.obj})'
