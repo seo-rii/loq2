@@ -71,8 +71,8 @@ class LBlock(object):
 
     @property
     def position(self):
-        return Point(self.obj.contents.p)
+        return Point(self.obj.p)
 
     @property
     def direction(self):
-        return self.obj.contents.dir
+        return self.obj.dir
