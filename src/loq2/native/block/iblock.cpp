@@ -28,8 +28,8 @@ bool IBlock::valid() const {
 
 bool IBlock::internal() const {
     if (dir == 1)
-        return this->p.x() >= 5 && this->p.x() <= 6 && this->p.y() >= 4 && this->p.y() <= 5;
+        return this->p.x() >= 5 && this->p.x() <= 6 && this->p.y() >= 3 && this->p.y() <= 6;
     if (dir == 2)
-        return this->p.x() >= 4 && this->p.x() <= 5 && this->p.y() >= 5 && this->p.y() <= 6;
+        return this->p.x() >= 3 && this->p.x() <= 6 && this->p.y() >= 5 && this->p.y() <= 6;
     return true;
 }

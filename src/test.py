@@ -82,4 +82,20 @@ a = a.act(ACTION.MOVE, 1, 5)
 a = a.act(ACTION.MOVE, 1, 4)
 assert a
 
+s = State()
+s = s.act(2, 3, 6, 2)
+assert not s
+
+s = State()
+s = s.act(3, 4, 6, 2)
+assert s
+
+s = State()
+s = s.act(3, 4, 4, 1)
+assert s
+
+s = State()
+s = s.act(3, 4, 4, 2)
+assert not s
+
 print('Test Success!')
