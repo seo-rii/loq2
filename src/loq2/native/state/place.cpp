@@ -14,7 +14,7 @@ State State::placeI(const IBlock &iBlock) const {
         state.block_ip[i] = iBlock;
         state = iBlock.apply(state).next();
         if (!state || !state.endable()) {
-            if(iBlock.internal()) return next();
+            if(!!state && state.mask().endable()) return next();
             return NULL_STATE;
         }
         return state;
@@ -27,7 +27,7 @@ State State::placeI(const IBlock &iBlock) const {
         state.block_ik[i] = iBlock;
         state = iBlock.apply(state).next();
           if (!state || !state.endable()) {
-              if(iBlock.internal()) return next();
+              if(!!state && state.mask().endable()) return next();
               return NULL_STATE;
           }
         return state;
@@ -51,7 +51,7 @@ State State::placeL(const LBlock &lBlock) const {
         state.block_lp[i] = lBlock;
         state = lBlock.apply(state).next();
           if (!state || !state.endable()) {
-              if(lBlock.internal()) return next();
+              if(!!state && state.next().mask().endable()) return next();
               return NULL_STATE;
           }
         return state;
@@ -64,7 +64,7 @@ State State::placeL(const LBlock &lBlock) const {
         state.block_lk[i] = lBlock;
         state = lBlock.apply(state).next();
           if (!state || !state.endable()) {
-              if(lBlock.internal()) return next();
+              if(!!state && state.next().mask().endable()) return next();
               return NULL_STATE;
           }
         return state;

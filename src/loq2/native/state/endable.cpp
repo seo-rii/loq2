@@ -1,6 +1,7 @@
 #include "../library.h"
 
 bool State::bfs(const Point &from, int endY) const {
+    if(!from.x() && !from.y()) return true;
     bool vis[BOARD_SIZE][BOARD_SIZE] = {};
     Point qu[BOARD_SIZE * BOARD_SIZE] = {};
     int l = 0, r = 0;
