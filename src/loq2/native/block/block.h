@@ -17,7 +17,7 @@ public:
 
     IBlock *copy() { return new IBlock(*this); }
 
-    bool internal() const;
+    bool internal(bool strict = true) const;
 
     void operator=(IBlock const &b) { p = b.p, dir = b.dir; }
 
@@ -43,7 +43,7 @@ public:
 
     LBlock *copy() { return new LBlock(*this); }
 
-    bool internal() const;
+    bool internal(bool strict = true) const;
 
     [[nodiscard]] State apply(State const &s, bool set = true) const;
 

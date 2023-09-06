@@ -26,11 +26,19 @@ bool LBlock::valid() const {
            && this->p.y() <= 9;
 }
 
-bool LBlock::internal() const {
-    if (this->p.x() < 4 || this->p.x() > 6 || this->p.y() < 4 || this->p.y() > 6) return false;
-    if (this->dir == 1 && this->p.x() == 4 && this->p.y() == 4) return false;
-    if (this->dir == 2 && this->p.x() == 4 && this->p.y() == 6) return false;
-    if (this->dir == 3 && this->p.x() == 6 && this->p.y() == 6) return false;
-    if (this->dir == 4 && this->p.x() == 6 && this->p.y() == 4) return false;
-    return true;
+bool LBlock::internal(bool strict) const {
+    if (strict) {
+        if (this->dir == 1 && 5 <= this->p.x() && this->p.x() <= 6 && 5 <= this->p.y() && this->p.y() <= 6) return true;
+        if (this->dir == 2 && 5 <= this->p.x() && this->p.x() <= 6 && 4 <= this->p.y() && this->p.y() <= 5) return true;
+        if (this->dir == 3 && 4 <= this->p.x() && this->p.x() <= 5 && 4 <= this->p.y() && this->p.y() <= 5) return true;
+        if (this->dir == 4 && 4 <= this->p.x() && this->p.x() <= 5 && 5 <= this->p.y() && this->p.y() <= 6) return true;
+        return false;
+    } else {
+        if (this->p.x() < 4 || this->p.x() > 6 || this->p.y() < 4 || this->p.y() > 6) return false;
+        if (this->dir == 1 && this->p.x() == 4 && this->p.y() == 4) return false;
+        if (this->dir == 2 && this->p.x() == 4 && this->p.y() == 6) return false;
+        if (this->dir == 3 && this->p.x() == 6 && this->p.y() == 6) return false;
+        if (this->dir == 4 && this->p.x() == 6 && this->p.y() == 4) return false;
+        return true;
+    }
 }

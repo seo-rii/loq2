@@ -5,7 +5,7 @@ State State::placeI(const IBlock &iBlock) const {
     return NULL_STATE;
   if (this->cross(iBlock))
     return NULL_STATE;
-  if(!this->internal() && iBlock.internal())
+  if(!this->internal() && iBlock.internal(false))
       return NULL_STATE;
   State state(*this);
   if (state.turn) {
@@ -42,7 +42,7 @@ State State::placeL(const LBlock &lBlock) const {
     return NULL_STATE;
   if (this->cross(lBlock))
     return NULL_STATE;
-  if(!this->internal() && lBlock.internal())
+  if(!this->internal() && lBlock.internal(false))
     return NULL_STATE;
   State state(*this);
   if (state.turn) {
