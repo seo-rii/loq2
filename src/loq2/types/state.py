@@ -43,12 +43,10 @@ class State(object):
     def __init__(self, st=None):
         if st is not None:
             self.obj = st
-            self.r = True
         else:
             self.obj = lib.State_New()
 
     def __del__(self):
-        if 'r' in self.__dict__: return
         lib.State_Delete(self.obj)
 
     def __bool__(self):
