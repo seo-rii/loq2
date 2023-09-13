@@ -27,7 +27,7 @@ State State::placeI(const IBlock &iBlock) const {
         state.block_ik[i] = iBlock;
         state = iBlock.apply(state).next();
           if (!state || !state.endable()) {
-              if(!!state && state.mask().endable()) return next();
+              if(!!state && state.next().mask().endable()) return next();
               return NULL_STATE;
           }
         return state;

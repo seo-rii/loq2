@@ -142,4 +142,40 @@ assert s
 s = s.act(3, 7, 6, 4)
 assert s
 
+s = State()
+s = s.act(1, 5, 2)
+s = s.act(1, 5, 8)
+assert s
+
+s = s.act(1, 5, 3)
+s = s.act(1, 5, 7)
+assert s
+
+s = s.act(1, 6, 3)
+s = s.act(1, 5, 6)
+assert s
+
+s = s.act(1, 7, 3)
+s = s.act(2, 3, 4, 2)
+s = s.act(1, 6, 3)
+s = s.act(2, 3, 5, 2)
+assert s
+
+s = s.act(1, 7, 3)
+s = s.act(2, 4, 6, 2)
+s = s.act(1, 6, 3)
+s = s.act(2, 5, 4, 2)
+assert s
+
+s = s.act(1, 7, 3)
+s = s.act(2, 5, 4, 1)
+s = s.act(1, 6, 3)
+s = s.act(2, 5, 6, 1)
+assert s
+
+s = s.act(1, 7, 3)
+s = s.act(3, 6, 6, 1)
+assert s.act(2, 5, 7, 2)
+assert s.act(1, 6, 3).act(2, 5, 7, 2)
+
 print('Test Success!')
