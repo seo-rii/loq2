@@ -7,13 +7,13 @@ class State {
 
     friend class LBlock;
 
+public:
+
     Point k, p;
     LBlock block_lk[L_COUNT], block_lp[L_COUNT];
     IBlock block_ik[I_COUNT], block_ip[I_COUNT];
     Map map{};
     bool turn{};
-
-public:
 
     State() = default;
 
