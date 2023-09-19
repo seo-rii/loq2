@@ -17,6 +17,7 @@ v = u.act(2, 2, 2, 1)
 assert s
 assert s.position(False) == (5, 9)
 assert not s.act(1, 5, 8)
+assert s.act_u(1, 5, 8)
 assert u
 assert v
 assert u.position(False) == (5, 2)

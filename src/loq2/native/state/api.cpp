@@ -14,6 +14,10 @@ API State *State_Act(State *s, byte type, byte p1, byte p2, byte p3 = 0) {
   return new State(s->act(type, p1, p2, p3));
 }
 
+API State *State_Act_u(State *s, byte type, byte p1, byte p2, byte p3 = 0) {
+  return new State(s->act_u(type, p1, p2, p3));
+}
+
 API State *State_Mask(State *s) { return new State(s->mask()); }
 
 API Map *State_GetMap(State *s) { return new Map(s->getMap()); }

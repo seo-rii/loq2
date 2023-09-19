@@ -32,6 +32,8 @@ lib.State_Next.restype = StatePointer
 
 lib.State_Act.argtypes = [StatePointer, T.c_ubyte, T.c_ubyte, T.c_ubyte, T.c_ubyte]
 lib.State_Act.restype = StatePointer
+lib.State_Act_u.argtypes = [StatePointer, T.c_ubyte, T.c_ubyte, T.c_ubyte, T.c_ubyte]
+lib.State_Act_u.restype = StatePointer
 lib.State_GetMap.argtypes = [StatePointer]
 lib.State_GetMap.restype = MapPointer
 
@@ -54,6 +56,9 @@ class State(object):
 
     def act(self, action, x, y, w=0) -> 'State':
         return State(lib.State_Act(self.obj, action, x, y, w))
+
+    def act_u(self, action, x, y, w=0) -> 'State':
+        return State(lib.State_Act_u(self.obj, action, x, y, w))
 
     @property
     def map(self):

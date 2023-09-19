@@ -26,14 +26,18 @@ public:
     // State
 
     [[nodiscard]] State act(byte type, byte p1, byte p2, byte p3 = 0) const;
+    [[nodiscard]] State act_u(byte type, byte p1, byte p2, byte p3 = 0) const;
 
     State *copy() { return new State(*this); }
 
     [[nodiscard]] State move(const Point &to) const;
+    [[nodiscard]] State move_u(const Point &to) const;
 
     [[nodiscard]] State placeI(const IBlock &iBlock) const;
+    [[nodiscard]] State placeI_u(const IBlock &iBlock) const;
 
     [[nodiscard]] State placeL(const LBlock &lBlock) const;
+    [[nodiscard]] State placeL_u(const LBlock &lBlock) const;
 
     [[nodiscard]] State mask() const;
 

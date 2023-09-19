@@ -60,3 +60,12 @@ State State::move(const Point &to) const {
     ns.p = to;
   return ns.next();
 }
+
+State State::move_u(const Point &to) const {
+  auto ns = State(*this);
+  if (!ns.turn)
+    ns.k = to;
+  else
+    ns.p = to;
+  return ns.next();
+}

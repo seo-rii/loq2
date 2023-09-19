@@ -19,6 +19,16 @@ State State::act(byte type, byte p1, byte p2, byte p3) const {
   return NULL_STATE;
 }
 
+State State::act_u(byte type, byte p1, byte p2, byte p3) const {
+  if (type == 1)
+    return move_u({p1, p2});
+  if (type == 2)
+    return placeI_u({{p1, p2}, p3});
+  if (type == 3)
+    return placeL_u({{p1, p2}, p3});
+  return NULL_STATE;
+}
+
 State State::next() const {
   State state(*this);
   state.turn = !state.turn;
