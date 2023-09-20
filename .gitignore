@@ -8,3 +8,5 @@ venv/
 .cache/
 **/*.pyc
 .DS_Store
+agent/
+log/

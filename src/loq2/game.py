@@ -28,12 +28,12 @@ class Game:
             return False
         ret = self.st.act(action, *args)
         if not ret:
-            self.fin = (1 - self.st.turn(), EndGameReason.INVALID_ACTION)
+            self.fin = (1 - int(self.st.turn), EndGameReason.INVALID_ACTION)
             return None
         self.st = ret
         self.acts.append((action, args))
-        win = self.st.win()
-        if win is not None:
+        win = self.st.win
+        if win != 0:
             self.fin = (win, EndGameReason.WIN)
             return True
         return True
