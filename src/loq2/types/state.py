@@ -74,7 +74,7 @@ class State(object):
         return Point(lib.State_Position(self.obj, is_player))
 
     def next(self):
-        return lib.State_Next(self.obj)
+        return State(lib.State_Next(self.obj))
 
     @property
     def turn(self):
